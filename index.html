@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Many Happy Returns</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,700;1,400&family=Rozha+One&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="bunting" width="100%" height="44" aria-hidden="true">
+    <defs>
+      <pattern id="flags" width="120" height="44" patternUnits="userSpaceOnUse">
+        <polygon class="f1" points="6,6 38,6 22,40"/>
+        <polygon class="f2" points="46,6 78,6 62,40"/>
+        <polygon class="f3" points="86,6 118,6 102,40"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="44" fill="url(#flags)"/>
+    <line class="string" x1="0" y1="5" x2="100%" y2="5"/>
+  </svg>
+
+  <main class="page">
+    <h1>Many Happy Returns</h1>
+    <p>Write a birthday wish for someone special.</p>
+
+    <label for="name">Their name</label>
+    <input id="name" type="text" value="Ananya">
+
+    <label for="tone">Tone</label>
+    <select id="tone">
+      <option value="heartfelt">Heartfelt</option>
+      <option value="funny">Funny</option>
+      <option value="short">Short and sweet</option>
+    </select>
+    <button type="button" id="another">Another wish</button>
+
+    <label for="msg">Message</label>
+    <textarea id="msg" rows="4"></textarea>
+
+    <label for="from">From</label>
+    <input id="from" type="text" placeholder="Your name">
+        <label for="photo">Photo (optional)</label>
+    <input id="photo" type="file" accept="image/*">
+    <button type="button" id="removePhoto" hidden>Remove photo</button>
+
+    <label for="skin">Card colour</label>
+    <select id="skin">
+      <option value="midnight">Midnight gold</option>
+      <option value="ivory">Ivory and gold</option>
+      <option value="marigold">Marigold</option>
+      <option value="rani">Rani pink</option>
+      <option value="peacock">Peacock</option>
+    </select>
+        <label for="stickerPick">Sticker</label>
+    <select id="stickerPick">
+      <option value="crown">Crown</option>
+      <option value="balloons">Balloons</option>
+      <option value="gift">Gift</option>
+      <option value="heart">Heart</option>
+      <option value="sparkle">Sparkle</option>
+      <option value="none">No sticker</option>
+    </select>
+
+    <label for="date">Their birthday</label>
+    <input id="date" type="date">
+
+    <div class="actions">
+      <button type="button" id="celebrate">Celebrate</button>
+      <button type="button" id="copy">Copy wish</button>
+      <button type="button" id="save">Save to my list</button>
+            <button type="button" id="whatsapp">Send on WhatsApp</button>
+      <button type="button" id="image">Save as image</button>
+    </div>
+    <p id="statusLine"></p>
+
+    <article class="card" id="card">
+              <div class="sticker" id="stickerArt"></div>
+      <span class="kicker">A birthday wish</span>
+            <div class="photo" id="photoBox" hidden>
+        <img id="photoImg" alt="Photo of the birthday person">
+      </div>
+      <p class="hb">Happy birthday,</p>
+      <h2 id="cardName">Ananya</h2>
+      <div class="divider"></div>
+      <p id="cardMsg"></p>
+      <p id="cardFrom"></p>
+      <svg class="cake" viewBox="0 0 120 124" aria-hidden="true">
+        <rect x="8" y="108" width="104" height="8" rx="3"/>
+        <rect x="16" y="76" width="88" height="32" rx="3"/>
+        <rect x="32" y="48" width="56" height="28" rx="3" opacity=".8"/>
+        <rect x="43" y="28" width="5" height="20"/>
+        <rect x="57.5" y="28" width="5" height="20"/>
+        <rect x="72" y="28" width="5" height="20"/>
+        <ellipse class="flame" cx="45.5" cy="21" rx="4" ry="7"/>
+        <ellipse class="flame" cx="60" cy="21" rx="4" ry="7"/>
+        <ellipse class="flame" cx="74.5" cy="21" rx="4" ry="7"/>
+      </svg>
+    </article>
+
+    <h2>Birthdays coming up</h2>
+    <p id="emptyNote">No one is saved yet. Add a name and birthday, then press Save to my list.</p>
+    <ul id="peopleList"></ul>
+  </main>
+
+  <canvas id="confetti"></canvas>
+  <script src="script.js"></script>
+</body>
+</html>

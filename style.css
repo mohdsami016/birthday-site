@@ -1,0 +1,379 @@
+:root {
+  --bg: #fff5f9;
+  --ink: #2b1233;
+  --muted: #6a5273;
+  --accent: #c21e66;
+  --line: #e9d3e0;
+}
+
+body {
+  margin: 0;
+  font-family: "Figtree", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+/* Bunting */
+.bunting { display: block; width: 100%; height: 44px; }
+.bunting .f1 { fill: #c21e66; }
+.bunting .f2 { fill: #f2a413; }
+.bunting .f3 { fill: #0e7c80; }
+.bunting .string { stroke: var(--muted); stroke-width: 1.5; }
+
+/* Page */
+.page {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px 16px 64px;
+  display: grid;
+  gap: 10px;
+}
+
+h1 {
+  margin: 8px 0 0;
+  font-family: "Rozha One", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 7vw, 3.2rem);
+  line-height: 1.05;
+}
+
+h1 + p {
+  margin: 0 0 12px;
+  color: var(--muted);
+}
+
+label {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+input, textarea, select {
+  font: inherit;
+  padding: 10px 12px;
+  background: #fff;
+  color: var(--ink);
+  border: 1px solid #b9a3c2;
+  border-radius: 10px;
+}
+
+input:focus, textarea:focus, select:focus, button:focus-visible {
+  outline: 2px solid #0e7c80;
+  outline-offset: 2px;
+}
+
+/* Buttons */
+button {
+  font: inherit;
+  font-weight: 700;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+button:hover { filter: brightness(1.08); }
+
+#copy, #save, #another, #whatsapp, #image {
+  background: transparent;
+  color: var(--ink);
+  border-color: #b9a3c2;
+}
+#another { justify-self: start; }
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+#statusLine {
+  margin: 0;
+  min-height: 1.4em;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* The card */
+.card {
+  --card-bg: #f7b32b;
+  --card-fg: #34082a;
+  --card-accent: #c21e66;
+  position: relative;
+  overflow: hidden;
+  margin-top: 16px;
+  padding: clamp(32px, 7vw, 52px);
+  padding-bottom: 140px;
+  min-height: 380px;
+  color: var(--card-fg);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.16), transparent 45%),
+    radial-gradient(circle at 100% 100%, rgba(0, 0, 0, 0.12), transparent 55%),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.04) 0 2px, transparent 2px 14px),
+    var(--card-bg);
+  border-radius: 6px;
+  box-shadow:
+    0 2px 4px rgba(43, 18, 51, 0.25),
+    0 30px 50px -24px rgba(43, 18, 51, 0.6);
+}
+
+/* The colours */
+.card[data-skin="midnight"] {
+  --card-bg: #1b0f2e;
+  --card-fg: #f6ecd9;
+  --card-accent: #e2b44f;
+  --foil: linear-gradient(100deg, #b98a2e 0%, #f7e3a1 35%, #e2b44f 55%, #fff1bf 75%, #b98a2e 100%);
+}
+
+.card[data-skin="ivory"] {
+  --card-bg: #fbf5e6;
+  --card-fg: #3a2410;
+  --card-accent: #8a5a0a;
+  --foil: linear-gradient(100deg, #7a4d06 0%, #b27b17 40%, #d9a441 55%, #8a5a0a 100%);
+}
+
+.card[data-skin="rani"] {
+  --card-bg: #c21e66;
+  --card-fg: #fff0f6;
+  --card-accent: #ffc14d;
+}
+
+.card[data-skin="peacock"] {
+  --card-bg: #0e6266;
+  --card-fg: #eafbf7;
+  --card-accent: #ffc14d;
+}
+
+/* Gold double frame */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid var(--card-accent);
+  outline: 1px solid var(--card-accent);
+  outline-offset: 5px;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* Shine that sweeps across on hover */
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -60%;
+  width: 40%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.9s ease;
+  pointer-events: none;
+}
+.card:hover::after { left: 130%; }
+
+/* Text */
+.card p { margin: 0; }
+
+.kicker {
+  display: block;
+  margin-bottom: 18px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--card-accent);
+}
+
+.hb {
+  font-family: "Rozha One", Georgia, serif;
+  font-size: clamp(1.2rem, 3.4vw, 1.55rem);
+}
+
+.card h2 {
+  margin: 2px 0 0;
+  padding-bottom: 0.08em;
+  font-family: "Rozha One", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.6rem, 10vw, 4.4rem);
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+  color: var(--card-fg);
+}
+
+/* Gold foil name on the two premium colours */
+.card[data-skin="midnight"] h2,
+.card[data-skin="ivory"] h2 {
+  background: var(--foil);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.divider {
+  position: relative;
+  height: 1px;
+  max-width: 260px;
+  margin: 22px 0 24px;
+  background: linear-gradient(90deg, var(--card-accent), transparent);
+}
+.divider::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  background: var(--card-accent);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+#cardMsg {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 44ch;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+#cardFrom {
+  margin-top: 22px;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--card-accent);
+}
+
+/* Cake */
+.cake {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  width: 84px;
+  fill: var(--card-fg);
+}
+
+.cake .flame {
+  fill: var(--card-accent);
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: flicker 1.4s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { transform: scale(1, 1); }
+  50% { transform: scale(0.88, 1.14); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cake .flame { animation: none; }
+  .card::after { transition: none; }
+}
+
+/* Saved list */
+.page > h2 {
+  margin: 28px 0 0;
+  font-size: 1.05rem;
+}
+
+#emptyNote {
+  margin: 0;
+  color: var(--muted);
+}
+
+#peopleList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#peopleList li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.days {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.linkbtn {
+  background: none;
+  color: var(--accent);
+  padding: 4px;
+  border: 0;
+  text-decoration: underline;
+}
+
+/* Confetti layer */
+#confetti {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+/* Sticker in the card's top-right corner */
+.sticker {
+  position: absolute;
+  top: 34px;
+  right: 34px;
+  width: 72px;
+  height: 72px;
+  animation: bob 3.2s ease-in-out infinite;
+}
+.sticker:empty { display: none; }
+.sticker svg { display: block; width: 100%; height: 100%; }
+
+/* a = accent colour, b = text colour, so stickers match every card colour */
+.sticker .a { fill: var(--card-accent); }
+.sticker .b { fill: var(--card-fg); }
+.sticker .line { fill: none; stroke: var(--card-fg); stroke-width: 2; stroke-linecap: round; }
+.sticker .shine { fill: #fff; opacity: 0.35; }
+.sticker .shade { fill: rgba(0, 0, 0, 0.25); }
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-5px) rotate(3deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticker { animation: none; }
+}
+/* Photo in a gold ring */
+.photo {
+  box-sizing: border-box;
+  width: 132px;
+  height: 132px;
+  margin-bottom: 20px;
+  padding: 4px;
+  border-radius: 50%;
+  background: var(--foil, var(--card-accent));
+  box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.6);
+}
+.photo[hidden] { display: none; }
+
+.photo img {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* crops to a square, centred, so faces aren't squashed */
+  border-radius: 50%;
+  border: 4px solid var(--card-bg);  /* a thin gap between photo and ring */
+}
+
+#removePhoto {
+  justify-self: start;
+  background: transparent;
+  color: var(--ink);
+  border-color: #b9a3c2;
+}
